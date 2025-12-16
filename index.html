@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ライフタイム</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app off">
+
+  <!-- HOME -->
+  <section id="tab-home" class="tab-panel active">
+    <header class="date size-m" id="dateHeader">
+      <div id="year"></div>
+      <div id="date"></div>
+      <div id="time"></div>
+    </header>
+
+    <main class="home">
+      <div class="button-wrapper">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="54" />
+          <circle class="ring-progress" cx="60" cy="60" r="54" />
+        </svg>
+        <button class="power-button" id="powerBtn" aria-label="toggle"></button>
+      </div>
+    </main>
+  </section>
+
+  <!-- LIFE -->
+  <section id="tab-life" class="tab-panel">
+    <main class="life">
+      <div id="lifeContainer" class="life-container"></div>
+    </main>
+  </section>
+
+  <!-- SETTINGS -->
+  <section id="tab-settings" class="tab-panel">
+    <main class="settings">
+      <div class="settings-card">
+        <div class="settings-title">表示</div>
+        <label class="row"><span>日付を表示</span><input type="checkbox" id="toggleDate" /></label>
+        <label class="row"><span>曜日を表示</span><input type="checkbox" id="toggleWeekday" /></label>
+        <label class="row"><span>時間を表示</span><input type="checkbox" id="toggleTime" /></label>
+        <label class="row">
+          <span>文字サイズ</span>
+          <select id="fontSize">
+            <option value="s">小</option>
+            <option value="m">中</option>
+            <option value="l">大</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="settings-card">
+        <div class="settings-title">人生ゲージ</div>
+        <label class="row"><span>人生タブを有効にする</span><input type="checkbox" id="toggleLife" /></label>
+        <div id="lifeFields" class="settings-fields">
+          <label class="field"><span>生年月日</span><input type="date" id="birthdate" /></label>
+          <label class="field"><span>想定寿命（年）</span><input type="number" id="expectancy" min="1" max="130" /></label>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- TAB BAR -->
+  <nav class="tab-bar">
+    <button class="tab active" data-tab="home">ホーム</button>
+    <button class="tab" data-tab="life">人生</button>
+    <button class="tab" data-tab="settings">設定</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
